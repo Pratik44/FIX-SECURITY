@@ -18,6 +18,77 @@ messages_store = []
 alerts_store = []
 compliance_results = []
 
+
+def load_dummy_data():
+    """Load dummy data for viewing reports and testing the API."""
+    base_time = datetime.now() - timedelta(hours=24)
+
+    # Dummy FIX messages (orders, executions, logon/logout)
+    global messages_store
+    messages_store = [
+        {'id': 'msg_1', 'session_id': 'SESSION-001', 'msg_type': 'D', 'sender_comp_id': 'CLIENT_A', 'target_comp_id': 'BROKER_X',
+         'timestamp': (base_time + timedelta(minutes=10)).isoformat(), 'symbol': 'AAPL', 'side': '1', 'order_qty': 100.0, 'price': 175.50, 'cl_ord_id': 'ORD-001', 'ord_type': '2'},
+        {'id': 'msg_2', 'session_id': 'SESSION-001', 'msg_type': '8', 'sender_comp_id': 'BROKER_X', 'target_comp_id': 'CLIENT_A',
+         'timestamp': (base_time + timedelta(minutes=11)).isoformat(), 'symbol': 'AAPL', 'order_id': 'EX-001', 'exec_type': '0', 'ord_status': '0', 'last_qty': 100.0, 'last_px': 175.50},
+        {'id': 'msg_3', 'session_id': 'SESSION-001', 'msg_type': 'D', 'sender_comp_id': 'CLIENT_A', 'target_comp_id': 'BROKER_X',
+         'timestamp': (base_time + timedelta(minutes=30)).isoformat(), 'symbol': 'MSFT', 'side': '2', 'order_qty': 250.0, 'price': 380.25, 'cl_ord_id': 'ORD-002', 'ord_type': '2'},
+        {'id': 'msg_4', 'session_id': 'SESSION-002', 'msg_type': 'D', 'sender_comp_id': 'CLIENT_B', 'target_comp_id': 'BROKER_X',
+         'timestamp': (base_time + timedelta(hours=1)).isoformat(), 'symbol': 'GOOGL', 'side': '1', 'order_qty': 50.0, 'price': 140.00, 'cl_ord_id': 'ORD-003', 'ord_type': '1'},
+        {'id': 'msg_5', 'session_id': 'SESSION-002', 'msg_type': '8', 'sender_comp_id': 'BROKER_X', 'target_comp_id': 'CLIENT_B',
+         'timestamp': (base_time + timedelta(hours=1, minutes=2)).isoformat(), 'symbol': 'GOOGL', 'order_id': 'EX-002', 'exec_type': '4', 'ord_status': '4', 'last_qty': 50.0, 'last_px': 139.95},
+        {'id': 'msg_6', 'session_id': 'SESSION-001', 'msg_type': 'D', 'sender_comp_id': 'CLIENT_A', 'target_comp_id': 'BROKER_X',
+         'timestamp': (base_time + timedelta(hours=2)).isoformat(), 'symbol': 'AAPL', 'side': '1', 'order_qty': 500.0, 'price': 174.00, 'cl_ord_id': 'ORD-004', 'ord_type': '2'},
+        {'id': 'msg_7', 'session_id': 'SESSION-003', 'msg_type': 'D', 'sender_comp_id': 'CLIENT_C', 'target_comp_id': 'BROKER_X',
+         'timestamp': (base_time + timedelta(hours=3)).isoformat(), 'symbol': 'AMZN', 'side': '2', 'order_qty': 75.0, 'price': 185.20, 'cl_ord_id': 'ORD-005', 'ord_type': '2'},
+        {'id': 'msg_8', 'session_id': 'SESSION-003', 'msg_type': '8', 'sender_comp_id': 'BROKER_X', 'target_comp_id': 'CLIENT_C',
+         'timestamp': (base_time + timedelta(hours=3, minutes=1)).isoformat(), 'symbol': 'AMZN', 'order_id': 'EX-003', 'exec_type': '0', 'ord_status': '2', 'last_qty': 75.0, 'last_px': 185.20},
+    ]
+
+    # Dummy security alerts
+    global alerts_store
+    alerts_store = [
+        {'id': 'alert_1', 'severity': 'HIGH', 'type': 'RATE_LIMIT', 'message': 'Unusual message rate from CLIENT_A (session SESSION-001)', 'timestamp': (base_time + timedelta(minutes=35)).isoformat(), 'session_id': 'SESSION-001'},
+        {'id': 'alert_2', 'severity': 'MEDIUM', 'type': 'LARGE_ORDER', 'message': 'Order size 500 exceeds typical threshold for symbol AAPL', 'timestamp': (base_time + timedelta(hours=2, minutes=1)).isoformat(), 'session_id': 'SESSION-001'},
+        {'id': 'alert_3', 'severity': 'CRITICAL', 'type': 'INVALID_MSG', 'message': 'Malformed FIX message rejected - checksum mismatch', 'timestamp': (base_time + timedelta(hours=4)).isoformat(), 'session_id': 'SESSION-002'},
+        {'id': 'alert_4', 'severity': 'LOW', 'type': 'SESSION', 'message': 'New session established: SESSION-003', 'timestamp': (base_time + timedelta(hours=2, minutes=55)).isoformat(), 'session_id': 'SESSION-003'},
+    ]
+
+    # Dummy compliance check results (MiFID II, FINRA, etc.)
+    global compliance_results
+    compliance_results = [
+        {'id': 'comp_1', 'session_id': 'SESSION-001', 'rule': 'MiFID II - Best Execution', 'compliant': True, 'checked_at': (base_time + timedelta(minutes=15)).isoformat(), 'details': 'Order executed within price tolerance'},
+        {'id': 'comp_2', 'session_id': 'SESSION-001', 'rule': 'FINRA - Order Marking', 'compliant': True, 'checked_at': (base_time + timedelta(minutes=15)).isoformat(), 'details': 'Order correctly marked as agency'},
+        {'id': 'comp_3', 'session_id': 'SESSION-002', 'rule': 'MiFID II - Best Execution', 'compliant': True, 'checked_at': (base_time + timedelta(hours=1, minutes=5)).isoformat(), 'details': 'Execution within spread'},
+        {'id': 'comp_4', 'session_id': 'SESSION-002', 'rule': 'SEC - Timestamp Accuracy', 'compliant': False, 'checked_at': (base_time + timedelta(hours=4, minutes=1)).isoformat(), 'details': 'Message timestamp outside acceptable drift'},
+        {'id': 'comp_5', 'session_id': 'SESSION-003', 'rule': 'MiFID II - Best Execution', 'compliant': True, 'checked_at': (base_time + timedelta(hours=3, minutes=5)).isoformat(), 'details': 'Fill at or better than limit'},
+        {'id': 'comp_6', 'session_id': 'SESSION-003', 'rule': 'FINRA - Order Marking', 'compliant': True, 'checked_at': (base_time + timedelta(hours=3, minutes=5)).isoformat(), 'details': 'Correct side and capacity'},
+    ]
+
+
+# Load dummy data when the app starts
+load_dummy_data()
+
+
+@app.route('/')
+def index():
+    """Root endpoint - API info and links to main endpoints"""
+    return jsonify({
+        'service': 'FIX Security Platform API',
+        'version': '1.0.0',
+        'status': 'running',
+        'docs': 'See docs/API.md',
+        'endpoints': {
+            'health': 'GET /api/v1/health',
+            'messages': 'GET /api/v1/messages',
+            'message_by_id': 'GET /api/v1/messages/<id>',
+            'sessions': 'GET /api/v1/sessions',
+            'alerts': 'GET /api/v1/alerts',
+            'compliance': 'GET /api/v1/compliance',
+            'stats': 'GET /api/v1/stats',
+        }
+    })
+
+
 @app.route('/api/v1/health', methods=['GET'])
 def health_check():
     """Health check endpoint"""

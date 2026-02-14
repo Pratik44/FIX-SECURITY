@@ -2,9 +2,9 @@ package com.fixsecurity.engine;
 
 import quickfix.*;
 import quickfix.field.*;
-import quickfix.fix44.*;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Iterator;
 
 /**
  * FIX Message Parser
@@ -21,7 +21,7 @@ public class FIXMessageParser {
      */
     public ParsedMessage parse(String fixString) throws InvalidMessageException {
         try {
-            Message message = MessageUtils.parse(new SessionID("", "", ""), fixString);
+            Message message = new Message(fixString);
             return extractMessageInfo(message);
         } catch (InvalidMessage e) {
             throw new InvalidMessageException("Failed to parse FIX message: " + e.getMessage(), e);
@@ -93,37 +93,50 @@ public class FIXMessageParser {
     
     private String getStringField(Message message, int fieldTag) {
         try {
-            StringField field = (StringField) message.getField(new quickfix.Field(fieldTag));
-            return field.getValue();
+            return message.getHeader().getString(fieldTag);
         } catch (FieldNotFound e) {
-            return null;
+            try {
+                return message.getString(fieldTag);
+            } catch (FieldNotFound e2) {
+                return null;
+            }
         }
     }
     
     private int getIntField(Message message, int fieldTag) {
         try {
-            IntField field = (IntField) message.getField(new quickfix.Field(fieldTag));
-            return field.getValue();
+            return message.getHeader().getInt(fieldTag);
         } catch (FieldNotFound e) {
-            return 0;
+            try {
+                return message.getInt(fieldTag);
+            } catch (FieldNotFound e2) {
+                return 0;
+            }
         }
     }
     
     private double getDoubleField(Message message, int fieldTag) {
         try {
-            DoubleField field = (DoubleField) message.getField(new quickfix.Field(fieldTag));
-            return field.getValue();
+            return message.getHeader().getDouble(fieldTag);
         } catch (FieldNotFound e) {
-            return 0.0;
+            try {
+                return message.getDouble(fieldTag);
+            } catch (FieldNotFound e2) {
+                return 0.0;
+            }
         }
     }
     
     private Map<String, String> extractAllFields(Message message) {
         Map<String, String> fields = new HashMap<>();
-        for (Field<?> field : message.getHeader().getFields()) {
+        Iterator<Field<?>> headerIt = message.getHeader().iterator();
+        while (headerIt.hasNext()) {
+            Field<?> field = headerIt.next();
             fields.put(String.valueOf(field.getTag()), field.toString());
         }
-        for (Field<?> field : message.getFields()) {
+        Iterator<Field<?>> bodyIt = message.iterator();
+        while (bodyIt.hasNext()) {
+            Field<?> field = bodyIt.next();
             fields.put(String.valueOf(field.getTag()), field.toString());
         }
         return fields;
@@ -134,8 +147,8 @@ public class FIXMessageParser {
      */
     public boolean validateChecksum(String fixString) {
         try {
-            Message message = MessageUtils.parse(new SessionID("", "", ""), fixString);
-            return message.getHeader().getInt(CheckSum.FIELD) == 
+            Message message = new Message(fixString);
+            return message.getTrailer().getInt(CheckSum.FIELD) == 
                    MessageUtils.checksum(fixString.substring(0, fixString.lastIndexOf("10=")));
         } catch (Exception e) {
             return false;
