@@ -123,6 +123,7 @@ The platform is designed for horizontal scaling:
 - **Message Queue** - Kafka provides distributed message processing
 - **Database Sharding** - Can shard by session or time range
 - **Caching** - Redis caching for frequently accessed data
+- **K8s** - Operator based deployment (planned)
 
 ## Security
 

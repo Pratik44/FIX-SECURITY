@@ -2,7 +2,7 @@
 
 ## Overview
 
-This guide will help you get started with using the FIX Security Platform.
+This guide will is to start FIX Security Platform.
 
 ## Quick Start
 
@@ -13,11 +13,10 @@ This guide will help you get started with using the FIX Security Platform.
 cd infrastructure
 docker-compose -f docker-compose.dev.yml up -d
 
-# Start FIX Engine
 cd ../fix-engine
 mvn spring-boot:run
 
-# Start API Server
+
 cd ../api
 python app.py
 ```
@@ -39,13 +38,10 @@ curl http://localhost:5000/api/v1/health
 Query FIX messages:
 
 ```bash
-# Get all messages
 curl http://localhost:5000/api/v1/messages
 
-# Filter by session
 curl http://localhost:5000/api/v1/messages?session_id=SESSION-001
 
-# Filter by message type
 curl http://localhost:5000/api/v1/messages?msg_type=D
 ```
 
@@ -60,12 +56,9 @@ curl http://localhost:5000/api/v1/sessions
 ### Security Alerts
 
 View security alerts:
-
 ```bash
-# Get all alerts
 curl http://localhost:5000/api/v1/alerts
 
-# Filter by severity
 curl http://localhost:5000/api/v1/alerts?severity=CRITICAL
 ```
 
@@ -74,10 +67,9 @@ curl http://localhost:5000/api/v1/alerts?severity=CRITICAL
 Check compliance status:
 
 ```bash
-# Overall compliance
+
 curl http://localhost:5000/api/v1/compliance
 
-# Session-specific compliance
 curl http://localhost:5000/api/v1/compliance?session_id=SESSION-001
 ```
 
@@ -137,34 +129,20 @@ axios.get(`${baseUrl}/alerts`, {
 });
 ```
 
-## Best Practices
 
-1. **Monitor Regularly**: Check alerts and compliance status regularly
-2. **Set Up Alerts**: Configure alerting for critical security events
-3. **Review Logs**: Regularly review audit logs for suspicious activity
-4. **Update Rules**: Keep compliance rules up to date with regulations
-5. **Backup Data**: Regularly backup database and configuration
 
 ## Troubleshooting
 
-### API Not Responding
+
 - Check if services are running: `docker ps`
 - Check API logs: `docker logs fix-security-api`
-- Verify port 5000 is not in use
+- Verify port 5000
 
-### No Messages Appearing
+
 - Verify Kafka is running: `docker logs fix-security-kafka`
 - Check FIX Engine logs for parsing errors
-- Verify network capture is configured correctly
+- Verify network
 
-### Database Connection Issues
 - Ensure PostgreSQL is running: `docker ps | grep postgres`
 - Check connection settings in `application.properties`
-- Verify database schema is initialized
-
-## Support
-
-For issues or questions:
-- Open an issue on GitHub
-- Email: pratik.deenbandhu456@gmail.com
-- Check documentation in `docs/` directory
+- Verify database

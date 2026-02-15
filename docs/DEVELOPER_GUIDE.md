@@ -34,7 +34,7 @@ mvn clean install
 ```bash
 cd api
 python -m venv venv
-source venv/bin/activate  # Windows: venv\Scripts\activate
+source venv/bin/activate
 pip install -r requirements.txt
 ```
 
@@ -48,7 +48,7 @@ FIX_SECURITY/
 ├── ingestion/           # Message ingestion layer
 ├── security-engine/      # Security monitoring
 ├── compliance/           # Compliance engine
-├── analytics/            # Analytics and ML
+├── analytics/            # Analytics and ML ## To be implemented
 ├── storage/              # Database schemas
 ├── api/                  # REST API
 ├── frontend/             # Web UI (planned)
@@ -69,10 +69,8 @@ git checkout -b feature/new-feature
 3. Write tests
 4. Run tests:
 ```bash
-# Java
 mvn test
 
-# Python
 pytest
 ```
 
@@ -159,9 +157,6 @@ docker build -t fix-security-api:latest api/
 docker-compose -f infrastructure/docker-compose.prod.yml up -d
 ```
 
-### Production Deployment
-
-See deployment documentation in `docs/DEPLOYMENT.md` (to be created)
 
 ## Common Tasks
 
@@ -193,13 +188,6 @@ See deployment documentation in `docs/DEPLOYMENT.md` (to be created)
 - Use async processing for heavy operations
 - Optimize database queries with indexes
 
-## Security Considerations
-
-- Never commit secrets or API keys
-- Use environment variables for configuration
-- Validate all inputs
-- Use parameterized queries
-- Implement rate limiting
 
 ## Resources
 

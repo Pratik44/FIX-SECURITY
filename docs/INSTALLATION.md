@@ -1,8 +1,6 @@
 # Installation Guide
 
-## Prerequisites
-
-Before installing the FIX Security Platform, ensure you have the following installed:
+## Prereq
 
 - **Java 17+** (OpenJDK or Oracle JDK)
 - **Python 3.10+**
@@ -46,12 +44,6 @@ Connect to PostgreSQL and run the schema:
 docker exec -i fix-security-postgres psql -U fixuser -d fix_security < ../storage/src/main/resources/schema.sql
 ```
 
-Or manually:
-```bash
-docker exec -it fix-security-postgres psql -U fixuser -d fix_security
-# Then paste the contents of storage/src/main/resources/schema.sql
-```
-
 ## Step 4: Build Java Components
 
 Build the FIX Engine:
@@ -70,14 +62,6 @@ cd api
 pip install -r requirements.txt
 ```
 
-Or using virtual environment (recommended):
-
-```bash
-cd api
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-pip install -r requirements.txt
-```
 
 ## Step 6: Configure Application
 

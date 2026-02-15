@@ -6,7 +6,7 @@ http://localhost:5000/api/v1
 ```
 
 ## Authentication
-Currently, the API does not require authentication. In production, use OAuth 2.0 or API keys.
+Currently, the API does not require authentication. 
 
 ## Endpoints
 
