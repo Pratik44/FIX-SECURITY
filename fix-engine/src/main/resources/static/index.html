@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FIX Security — Analytics Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-inner">
+            <h1 class="logo">
+                <span class="logo-icon">◆</span>
+                FIX Security
+            </h1>
+            <nav class="nav">
+                <a href="/" class="nav-link active">Analytics</a>
+                <a href="/parser.html" class="nav-link">FIX Parser</a>
+            </nav>
+            <div class="header-status" id="apiStatus">
+                <span class="status-dot"></span>
+                <span>Checking...</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <section class="controls">
+            <div class="period-tabs">
+                <button class="period-btn active" data-period="day">Day</button>
+                <button class="period-btn" data-period="week">Week</button>
+                <button class="period-btn" data-period="month">Month</button>
+            </div>
+            <div class="report-tabs">
+                <button class="report-btn active" data-report="anomalies">Top Anomalies</button>
+                <button class="report-btn" data-report="order-ids">Top Order IDs</button>
+            </div>
+            <button class="refresh-btn" id="refreshBtn" title="Refresh">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M23 4v6h-6M1 20v-6h6"/>
+                    <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/>
+                </svg>
+                Refresh
+            </button>
+        </section>
+
+        <section class="summary" id="summary">
+            <div class="summary-card">
+                <span class="summary-label">Period</span>
+                <span class="summary-value" id="periodLabel">Day</span>
+            </div>
+            <div class="summary-card">
+                <span class="summary-label">Records</span>
+                <span class="summary-value" id="recordCount">0</span>
+            </div>
+        </section>
+
+        <section class="content">
+            <div class="panel active" id="anomaliesPanel">
+                <div class="table-wrapper">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Time</th>
+                                <th>Type</th>
+                                <th>Description</th>
+                                <th>Order ID</th>
+                                <th>ClOrdID</th>
+                                <th>Session</th>
+                            </tr>
+                        </thead>
+                        <tbody id="anomaliesBody">
+                            <tr><td colspan="6" class="empty">No anomalies yet. Select a period and refresh.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="panel" id="orderIdsPanel">
+                <div class="table-wrapper">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Order ID / ClOrdID</th>
+                                <th>Anomaly Count</th>
+                            </tr>
+                        </thead>
+                        <tbody id="orderIdsBody">
+                            <tr><td colspan="3" class="empty">No order IDs yet. Select a period and refresh.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section class="loading" id="loading">
+            <div class="spinner"></div>
+            <p>Loading...</p>
+        </section>
+        <section class="error" id="error" hidden>
+            <p id="errorMessage"></p>
+        </section>
+    </main>
+
+    <div class="footer">
+        <span>FIX Security Platform v1.0</span>
+        <span>Analytics API</span>
+    </div>
+
+    <script src="/js/app.js"></script>
+</body>
+</html>

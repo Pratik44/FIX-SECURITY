@@ -16,7 +16,7 @@ public class FixEngineController {
 
     private final FIXMessageParser parser = new FIXMessageParser();
 
-    @GetMapping("/")
+    @GetMapping("/api/status")
     public ResponseEntity<Map<String, Object>> root() {
         Map<String, Object> body = new HashMap<>();
         body.put("service", "FIX Protocol Engine");

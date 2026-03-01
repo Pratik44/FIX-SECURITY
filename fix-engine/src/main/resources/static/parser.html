@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FIX Security — Message Parser</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-inner">
+            <h1 class="logo">
+                <span class="logo-icon">◆</span>
+                FIX Security
+            </h1>
+            <nav class="nav">
+                <a href="/" class="nav-link">Analytics</a>
+                <a href="/parser.html" class="nav-link active">FIX Parser</a>
+            </nav>
+            <div class="header-status" id="apiStatus">
+                <span class="status-dot"></span>
+                <span>Checking...</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="main parser-main">
+        <section class="parser-section">
+            <h2>Parse FIX Message</h2>
+            <p class="parser-hint">Enter a raw FIX message (pipe or SOH delimited). Example: <code>8=FIX.4.4|35=D|49=SENDER|56=TARGET|34=1|52=20250101-12:00:00</code></p>
+            <textarea id="fixInput" class="fix-input" placeholder="8=FIX.4.4|35=D|49=CLIENT|56=SERVER|34=1|52=20250101-12:00:00|11=ORD001|55=AAPL|54=1|38=100|40=2|44=150.50|59=0"></textarea>
+            <div class="parser-actions">
+                <button class="parse-btn" id="parseBtn">Parse</button>
+                <button class="clear-btn" id="clearBtn">Clear</button>
+            </div>
+        </section>
+
+        <section class="parser-section">
+            <h2>Parsed Result</h2>
+            <div id="parseResult" class="parse-result">
+                <p class="parse-placeholder">Enter a FIX message and click Parse.</p>
+            </div>
+        </section>
+
+        <section class="error" id="parseError" hidden>
+            <p id="parseErrorMessage"></p>
+        </section>
+    </main>
+
+    <div class="footer">
+        <span>FIX Security Platform v1.0</span>
+        <span>FIX Engine API</span>
+    </div>
+
+    <script src="/js/app.js"></script>
+    <script src="/js/parser.js"></script>
+</body>
+</html>

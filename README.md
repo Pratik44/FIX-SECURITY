@@ -111,6 +111,13 @@ Configuration files are located in `infrastructure/config/`:
 
 See [API Documentation](docs/API.md) for detailed API reference.
 
+### Web UI
+
+The FIX Engine serves a web dashboard at **http://localhost:8081/** (or your configured port):
+
+- **Analytics Dashboard** (`/`) – View top anomalies and top order IDs by period (day, week, month)
+- **FIX Parser** (`/parser.html`) – Parse raw FIX messages and view extracted fields
+
 ### Analytics Service (FIX Engine)
 
 The FIX Engine exposes analytics endpoints for anomaly and order-ID reports by period (day, week, month), with a maximum of 1000 results per report:
