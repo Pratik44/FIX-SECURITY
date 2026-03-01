@@ -111,6 +111,14 @@ Configuration files are located in `infrastructure/config/`:
 
 See [API Documentation](docs/API.md) for detailed API reference.
 
+### Analytics Service (FIX Engine)
+
+The FIX Engine exposes analytics endpoints for anomaly and order-ID reports by period (day, week, month), with a maximum of 1000 results per report:
+
+- **GET /api/analytics/reports/anomalies?period=day|week|month&limit=1000** – Top anomalies (newest first) for the period.
+- **GET /api/analytics/reports/order-ids?period=day|week|month&limit=1000** – Top order IDs (and clOrdIDs) by anomaly count for the period.
+- **POST /api/analytics/anomalies** – Record an anomaly (JSON: `anomalyType`, `description`, optional `orderId`, `clOrdID`, `sessionId`, `symbol`).
+
 ## Documentation
 
 - [Architecture Overview](docs/ARCHITECTURE.md)
@@ -118,15 +126,3 @@ See [API Documentation](docs/API.md) for detailed API reference.
 - [User Guide](docs/USER_GUIDE.md)
 - [Developer Guide](docs/DEVELOPER_GUIDE.md)
 - [API Reference](docs/API.md)
-
-## Contributing
-
-Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct and the process for submitting pull requests.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Support
-
-For support, email pratik.deenbandhu456@gmail.com or open an issue in the repository.

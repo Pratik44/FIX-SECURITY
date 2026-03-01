@@ -21,29 +21,32 @@ public class AnomalyDetector {
         AnomalyResult result = new AnomalyResult();
         String sessionId = message.getSenderCompID() + "-" + message.getTargetCompID();
         
+        String orderId = message.getOrderID();
+        String clOrdID = message.getClOrdID();
+
         // Check message volume anomaly
         if (isVolumeAnomaly(sessionId)) {
-            result.addAnomaly("HIGH_MESSAGE_VOLUME", 
-                "Unusual high message volume detected for session: " + sessionId);
+            result.addAnomaly("HIGH_MESSAGE_VOLUME",
+                "Unusual high message volume detected for session: " + sessionId, orderId, clOrdID);
         }
-        
+
         // Check message type anomaly
         if (isMessageTypeAnomaly(sessionId, message.getMsgType())) {
-            result.addAnomaly("UNUSUAL_MESSAGE_TYPE", 
-                "Unusual message type detected: " + message.getMsgType());
+            result.addAnomaly("UNUSUAL_MESSAGE_TYPE",
+                "Unusual message type detected: " + message.getMsgType(), orderId, clOrdID);
         }
-        
+
         // Check sequence number anomaly
         if (isSequenceAnomaly(sessionId, message.getMsgSeqNum())) {
-            result.addAnomaly("SEQUENCE_NUMBER_ANOMALY", 
-                "Sequence number gap detected: " + message.getMsgSeqNum());
+            result.addAnomaly("SEQUENCE_NUMBER_ANOMALY",
+                "Sequence number gap detected: " + message.getMsgSeqNum(), orderId, clOrdID);
         }
-        
+
         // Check price anomaly (for orders)
         if ("D".equals(message.getMsgType()) && message.getPrice() > 0) {
             if (isPriceAnomaly(message.getSymbol(), message.getPrice())) {
-                result.addAnomaly("PRICE_ANOMALY", 
-                    "Unusual price detected: " + message.getPrice() + " for " + message.getSymbol());
+                result.addAnomaly("PRICE_ANOMALY",
+                    "Unusual price detected: " + message.getPrice() + " for " + message.getSymbol(), orderId, clOrdID);
             }
         }
         

@@ -16,6 +16,8 @@ The FIX Security Platform is built using a microservices architecture with the f
 
 ## Data Flow
 
+A draw.io flow diagram is in [flow-diagram.drawio](flow-diagram.drawio). High-level flow:
+
 ```
 ┌─────────────────┐
 │  FIX Messages   │
@@ -138,3 +140,14 @@ The platform is designed for horizontal scaling:
 - **Metrics** - Prometheus metrics (planned)
 - **Logging** - Centralized logging with ELK stack (planned)
 - **Alerting** - Real-time alerts for critical events
+
+## Class Diagram
+
+- **UML class diagram** (three compartments, visibility, types, standard relationships): [uml-class-diagram.drawio](uml-class-diagram.drawio).
+- **Class diagram with data-flow arrows**: [class-diagram.drawio](class-diagram.drawio).
+
+Open either in [draw.io](https://app.diagrams.net/) or the Draw.io VS Code extension.
+
+## AWS Deployment Architecture
+
+A diagram for the platform deployed on AWS (VPC, ALB, EC2/Elastic Beanstalk, RDS, ElastiCache, MSK) is in [aws-architecture.drawio](aws-architecture.drawio). Open it in [draw.io](https://app.diagrams.net/) or the Draw.io VS Code extension.

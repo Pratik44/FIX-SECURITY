@@ -1,0 +1,257 @@
+<mxfile host="65bd71144e">
+    <diagram id="fix-security-db-schema" name="Database Schema">
+        <mxGraphModel dx="2163" dy="1920" grid="1" gridSize="10" guides="0" tooltips="1" connect="0" arrows="0" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="light-dark(#ffffff, #121212)" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="t1" value="fix_sessions" style="shape=table;startSize=0;container=1;collapsible=0;childLayout=tableLayout;fillColor=#dae8fc;strokeColor=#6c8ebf;align=left;spacingLeft=8;fontStyle=1;verticalAlign=top;" parent="1" vertex="1">
+                    <mxGeometry x="80" y="120" width="200" height="220" as="geometry"/>
+                </mxCell>
+                <mxCell id="t1h" value="fix_sessions" style="shape=tableRow;horizontal=1;startSize=0;fillColor=#6c8ebf;strokeColor=#6c8ebf;fontColor=#ffffff;fontStyle=1" parent="t1" vertex="1">
+                    <mxGeometry width="200" height="28" as="geometry"/>
+                </mxCell>
+                <mxCell id="t1r1" value="session_id (PK)" style="shape=tableRow;horizontal=1;startSize=0;fillColor=none;strokeColor=none;align=left;spacingLeft=8;" parent="t1" vertex="1">
+                    <mxGeometry y="28" width="200" height="24" as="geometry"/>
+                </mxCell>
+                <mxCell id="t1r2" value="sender_comp_id" style="shape=tableRow;horizontal=1;startSize=0;fillColor=none;strokeColor=none;align=left;spacingLeft=8;" parent="t1" vertex="1">
+                    <mxGeometry y="52" width="200" height="24" as="geometry"/>
+                </mxCell>
+                <mxCell id="t1r3" value="target_comp_id" style="shape=tableRow;horizontal=1;startSize=0;fillColor=none;strokeColor=none;align=left;spacingLeft=8;" parent="t1" vertex="1">
+                    <mxGeometry y="76" width="200" height="24" as="geometry"/>
+                </mxCell>
+                <mxCell id="t1r4" value="start_time" style="shape=tableRow;horizontal=1;startSize=0;fillColor=none;strokeColor=none;align=left;spacingLeft=8;" parent="t1" vertex="1">
+                    <mxGeometry y="100" width="200" height="24" as="geometry"/>
+                </mxCell>
+                <mxCell id="t1r5" value="end_time" style="shape=tableRow;horizontal=1;startSize=0;fillColor=none;strokeColor=none;align=left;spacingLeft=8;" parent="t1" vertex="1">
+                    <mxGeometry y="124" width="200" height="24" as="geometry"/>
+                </mxCell>
+                <mxCell id="t1r6" value="status" style="shape=tableRow;horizontal=1;startSize=0;fillColor=none;strokeColor=none;align=left;spacingLeft=8;" parent="t1" vertex="1">
+                    <mxGeometry y="148" width="200" height="24" as="geometry"/>
+                </mxCell>
+                <mxCell id="t1r7" value="created_at" style="shape=tableRow;horizontal=1;startSize=0;fillColor=none;strokeColor=none;align=left;spacingLeft=8;" parent="t1" vertex="1">
+                    <mxGeometry y="172" width="200" height="24" as="geometry"/>
+                </mxCell>
+                <mxCell id="t1r8" value="updated_at" style="shape=tableRow;horizontal=1;startSize=0;fillColor=none;strokeColor=none;align=left;spacingLeft=8;" parent="t1" vertex="1">
+                    <mxGeometry y="196" width="200" height="24" as="geometry"/>
+                </mxCell>
+                <mxCell id="t2" value="fix_messages_metadata" style="shape=table;startSize=0;container=1;collapsible=0;childLayout=tableLayout;fillColor=#d5e8d4;strokeColor=#82b366;align=left;spacingLeft=8;fontStyle=1;verticalAlign=top;" parent="1" vertex="1">
+                    <mxGeometry x="400" y="80" width="240" height="320" as="geometry"/>
+                </mxCell>
+                <mxCell id="t2h" value="fix_messages_metadata" style="shape=tableRow;horizontal=1;startSize=0;fillColor=#82b366;strokeColor=#82b366;fontColor=light-dark(#fdfcfc, #121212);fontStyle=1" parent="t2" vertex="1">
+                    <mxGeometry width="240" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="t2r1" value="message_id (PK)" style="shape=tableRow;horizontal=1;startSize=0;fillColor=none;strokeColor=none;align=left;spacingLeft=8;" parent="t2" vertex="1" collapsed="1">
+                    <mxGeometry y="30" width="240" height="31" as="geometry">
+                        <mxRectangle y="28" width="240" height="24" as="alternateBounds"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="t2r2" value="session_id (FK)" style="shape=tableRow;horizontal=1;startSize=0;fillColor=none;strokeColor=none;align=left;spacingLeft=8;" parent="t2" vertex="1">
+                    <mxGeometry y="61" width="240" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="t2r3" value="msg_type" style="shape=tableRow;horizontal=1;startSize=0;fillColor=none;strokeColor=none;align=left;spacingLeft=8;" parent="t2" vertex="1">
+                    <mxGeometry y="87" width="240" height="25" as="geometry"/>
+                </mxCell>
+                <mxCell id="t2r4" value="timestamp" style="shape=tableRow;horizontal=1;startSize=0;fillColor=none;strokeColor=none;align=left;spacingLeft=8;" parent="t2" vertex="1">
+                    <mxGeometry y="112" width="240" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="t2r5" value="direction" style="shape=tableRow;horizontal=1;startSize=0;fillColor=none;strokeColor=none;align=left;spacingLeft=8;" parent="t2" vertex="1" collapsed="1">
+                    <mxGeometry y="138" width="240" height="29" as="geometry">
+                        <mxRectangle y="140" width="240" height="25" as="alternateBounds"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="t2r6" value="raw_message_hash" style="shape=tableRow;horizontal=1;startSize=0;fillColor=none;strokeColor=none;align=left;spacingLeft=8;" parent="t2" vertex="1">
+                    <mxGeometry y="167" width="240" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="t2r7" value="sender_comp_id" style="shape=tableRow;horizontal=1;startSize=0;fillColor=none;strokeColor=none;align=left;spacingLeft=8;" parent="t2" vertex="1">
+                    <mxGeometry y="193" width="240" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="t2r8" value="target_comp_id" style="shape=tableRow;horizontal=1;startSize=0;fillColor=none;strokeColor=none;align=left;spacingLeft=8;" parent="t2" vertex="1">
+                    <mxGeometry y="219" width="240" height="25" as="geometry"/>
+                </mxCell>
+                <mxCell id="t2r9" value="msg_seq_num" style="shape=tableRow;horizontal=1;startSize=0;fillColor=none;strokeColor=none;align=left;spacingLeft=8;" parent="t2" vertex="1">
+                    <mxGeometry y="244" width="240" height="25" as="geometry"/>
+                </mxCell>
+                <mxCell id="t2r10" value="created_at" style="shape=tableRow;horizontal=1;startSize=0;fillColor=none;strokeColor=none;align=left;spacingLeft=8;" parent="t2" vertex="1">
+                    <mxGeometry y="269" width="240" height="25" as="geometry"/>
+                </mxCell>
+                <mxCell id="t2r11" value="(indexes: session_id, timestamp, msg_type, ...)" style="shape=tableRow;horizontal=1;startSize=0;fillColor=#f5f5f5;strokeColor=none;align=left;spacingLeft=8;fontStyle=2" parent="t2" vertex="1">
+                    <mxGeometry y="294" width="240" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="t3" value="security_alerts" style="shape=table;startSize=0;container=1;collapsible=0;childLayout=tableLayout;fillColor=#fff2cc;strokeColor=#d6b656;align=left;spacingLeft=8;fontStyle=1;verticalAlign=top;" parent="1" vertex="1">
+                    <mxGeometry x="400" y="480" width="240" height="280" as="geometry"/>
+                </mxCell>
+                <mxCell id="t3h" value="security_alerts" style="shape=tableRow;horizontal=1;startSize=0;fillColor=#d6b656;strokeColor=#d6b656;fontColor=#ffffff;fontStyle=1" parent="t3" vertex="1">
+                    <mxGeometry width="240" height="36" as="geometry"/>
+                </mxCell>
+                <mxCell id="t3r1" value="alert_id (PK)" style="shape=tableRow;horizontal=1;startSize=0;fillColor=none;strokeColor=none;align=left;spacingLeft=8;" parent="t3" vertex="1">
+                    <mxGeometry y="36" width="240" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="t3r2" value="session_id (FK)" style="shape=tableRow;horizontal=1;startSize=0;fillColor=none;strokeColor=none;align=left;spacingLeft=8;" parent="t3" vertex="1">
+                    <mxGeometry y="66" width="240" height="31" as="geometry"/>
+                </mxCell>
+                <mxCell id="t3r3" value="message_id (FK)" style="shape=tableRow;horizontal=1;startSize=0;fillColor=none;strokeColor=none;align=left;spacingLeft=8;" parent="t3" vertex="1">
+                    <mxGeometry y="97" width="240" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="t3r4" value="alert_type" style="shape=tableRow;horizontal=1;startSize=0;fillColor=none;strokeColor=none;align=left;spacingLeft=8;" parent="t3" vertex="1">
+                    <mxGeometry y="127" width="240" height="31" as="geometry"/>
+                </mxCell>
+                <mxCell id="t3r5" value="severity (CRITICAL/HIGH/MEDIUM/LOW)" style="shape=tableRow;horizontal=1;startSize=0;fillColor=none;strokeColor=none;align=left;spacingLeft=8;" parent="t3" vertex="1">
+                    <mxGeometry y="158" width="240" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="t3r6" value="description" style="shape=tableRow;horizontal=1;startSize=0;fillColor=none;strokeColor=none;align=left;spacingLeft=8;" parent="t3" vertex="1">
+                    <mxGeometry y="188" width="240" height="31" as="geometry"/>
+                </mxCell>
+                <mxCell id="t3r7" value="anomaly_details (JSONB)" style="shape=tableRow;horizontal=1;startSize=0;fillColor=none;strokeColor=none;align=left;spacingLeft=8;" parent="t3" vertex="1">
+                    <mxGeometry y="219" width="240" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="t3r8" value="created_at, acknowledged, acknowledged_at" style="shape=tableRow;horizontal=1;startSize=0;fillColor=none;strokeColor=none;align=left;spacingLeft=8;" parent="t3" vertex="1">
+                    <mxGeometry y="249" width="240" height="31" as="geometry"/>
+                </mxCell>
+                <mxCell id="t4" value="compliance_results" style="shape=table;startSize=0;container=1;collapsible=0;childLayout=tableLayout;fillColor=#e1d5e7;strokeColor=#9673a6;align=left;spacingLeft=8;fontStyle=1;verticalAlign=top;" parent="1" vertex="1">
+                    <mxGeometry x="720" y="80" width="240" height="280" as="geometry"/>
+                </mxCell>
+                <mxCell id="t4h" value="compliance_results" style="shape=tableRow;horizontal=1;startSize=0;fillColor=#9673a6;strokeColor=#9673a6;fontColor=#FCFCFC;fontStyle=1;textShadow=1;" parent="t4" vertex="1">
+                    <mxGeometry width="240" height="36" as="geometry"/>
+                </mxCell>
+                <mxCell id="t4r1" value="result_id (PK)" style="shape=tableRow;horizontal=1;startSize=0;fillColor=none;strokeColor=none;align=left;spacingLeft=8;" parent="t4" vertex="1">
+                    <mxGeometry y="36" width="240" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="t4r2" value="session_id (FK)" style="shape=tableRow;horizontal=1;startSize=0;fillColor=none;strokeColor=none;align=left;spacingLeft=8;" parent="t4" vertex="1">
+                    <mxGeometry y="66" width="240" height="31" as="geometry"/>
+                </mxCell>
+                <mxCell id="t4r3" value="message_id (FK)" style="shape=tableRow;horizontal=1;startSize=0;fillColor=none;strokeColor=none;align=left;spacingLeft=8;" parent="t4" vertex="1">
+                    <mxGeometry y="97" width="240" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="t4r4" value="rule_id, rule_name" style="shape=tableRow;horizontal=1;startSize=0;fillColor=none;strokeColor=none;align=left;spacingLeft=8;" parent="t4" vertex="1">
+                    <mxGeometry y="127" width="240" height="31" as="geometry"/>
+                </mxCell>
+                <mxCell id="t4r5" value="compliant" style="shape=tableRow;horizontal=1;startSize=0;fillColor=none;strokeColor=none;align=left;spacingLeft=8;" parent="t4" vertex="1">
+                    <mxGeometry y="158" width="240" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="t4r6" value="evaluation_message" style="shape=tableRow;horizontal=1;startSize=0;fillColor=none;strokeColor=none;align=left;spacingLeft=8;" parent="t4" vertex="1">
+                    <mxGeometry y="188" width="240" height="31" as="geometry"/>
+                </mxCell>
+                <mxCell id="t4r7" value="evaluation_details (JSONB)" style="shape=tableRow;horizontal=1;startSize=0;fillColor=none;strokeColor=none;align=left;spacingLeft=8;" parent="t4" vertex="1">
+                    <mxGeometry y="219" width="240" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="t4r8" value="created_at" style="shape=tableRow;horizontal=1;startSize=0;fillColor=none;strokeColor=none;align=left;spacingLeft=8;" parent="t4" vertex="1">
+                    <mxGeometry y="249" width="240" height="31" as="geometry"/>
+                </mxCell>
+                <mxCell id="t5" value="audit_log" style="shape=table;startSize=0;container=1;collapsible=0;childLayout=tableLayout;fillColor=#f8cecc;strokeColor=#b85450;align=left;spacingLeft=8;fontStyle=1;verticalAlign=top;" parent="1" vertex="1">
+                    <mxGeometry x="830" y="470" width="200" height="260" as="geometry"/>
+                </mxCell>
+                <mxCell id="t5h" value="audit_log" style="shape=tableRow;horizontal=1;startSize=0;fillColor=#b85450;strokeColor=#b85450;fontColor=#ffffff;fontStyle=1" parent="t5" vertex="1">
+                    <mxGeometry width="200" height="33" as="geometry"/>
+                </mxCell>
+                <mxCell id="t5r1" value="audit_id (PK)" style="shape=tableRow;horizontal=1;startSize=0;fillColor=none;strokeColor=none;align=left;spacingLeft=8;" parent="t5" vertex="1">
+                    <mxGeometry y="33" width="200" height="28" as="geometry"/>
+                </mxCell>
+                <mxCell id="t5r2" value="event_type" style="shape=tableRow;horizontal=1;startSize=0;fillColor=none;strokeColor=none;align=left;spacingLeft=8;" parent="t5" vertex="1">
+                    <mxGeometry y="61" width="200" height="29" as="geometry"/>
+                </mxCell>
+                <mxCell id="t5r3" value="session_id (FK)" style="shape=tableRow;horizontal=1;startSize=0;fillColor=none;strokeColor=none;align=left;spacingLeft=8;" parent="t5" vertex="1">
+                    <mxGeometry y="90" width="200" height="28" as="geometry"/>
+                </mxCell>
+                <mxCell id="t5r4" value="user_id" style="shape=tableRow;horizontal=1;startSize=0;fillColor=none;strokeColor=none;align=left;spacingLeft=8;" parent="t5" vertex="1">
+                    <mxGeometry y="118" width="200" height="29" as="geometry"/>
+                </mxCell>
+                <mxCell id="t5r5" value="action" style="shape=tableRow;horizontal=1;startSize=0;fillColor=none;strokeColor=none;align=left;spacingLeft=8;" parent="t5" vertex="1">
+                    <mxGeometry y="147" width="200" height="28" as="geometry"/>
+                </mxCell>
+                <mxCell id="t5r6" value="details (JSONB)" style="shape=tableRow;horizontal=1;startSize=0;fillColor=none;strokeColor=none;align=left;spacingLeft=8;" parent="t5" vertex="1">
+                    <mxGeometry y="175" width="200" height="28" as="geometry"/>
+                </mxCell>
+                <mxCell id="t5r7" value="ip_address" style="shape=tableRow;horizontal=1;startSize=0;fillColor=none;strokeColor=none;align=left;spacingLeft=8;" parent="t5" vertex="1">
+                    <mxGeometry y="203" width="200" height="29" as="geometry"/>
+                </mxCell>
+                <mxCell id="t5r8" value="created_at" style="shape=tableRow;horizontal=1;startSize=0;fillColor=none;strokeColor=none;align=left;spacingLeft=8;" parent="t5" vertex="1">
+                    <mxGeometry y="232" width="200" height="28" as="geometry"/>
+                </mxCell>
+                <mxCell id="title" value="FIX Security Platform - Database Schema" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=16;fontStyle=1" parent="1" vertex="1">
+                    <mxGeometry x="360" y="20" width="320" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="e1" style="edgeStyle=entityRelationEdgeStyle;html=1;endArrow=ERmany;startArrow=ERone;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="t2" target="t1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e1l" value="session_id (1 : m)" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="e1" vertex="1" connectable="0">
+                    <mxGeometry x="-0.1" y="1" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e2" style="edgeStyle=entityRelationEdgeStyle;html=1;endArrow=ERmany;startArrow=ERone;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="t3" target="t1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e2l" value="session_id (1 : m)" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="e2" vertex="1" connectable="0">
+                    <mxGeometry x="-0.2" y="1" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e3" style="edgeStyle=entityRelationEdgeStyle;html=1;endArrow=ERmany;startArrow=ERone;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" source="t3" target="t2">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e3l" value="message_id (1 : m)" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="e3" vertex="1" connectable="0">
+                    <mxGeometry x="-0.1" y="1" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e4" style="edgeStyle=entityRelationEdgeStyle;html=1;endArrow=ERmany;startArrow=ERone;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.25;entryDx=0;entryDy=0;" parent="1" source="t4" target="t1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e4l" value="session_id (1 : m)" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="e4" vertex="1" connectable="0">
+                    <mxGeometry x="-0.2" y="1" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e5" style="edgeStyle=entityRelationEdgeStyle;html=1;endArrow=ERmany;startArrow=ERone;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="t4" target="t2">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e5l" value="message_id (1 : m)" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="e5" vertex="1" connectable="0">
+                    <mxGeometry x="-0.1" y="1" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e6" style="edgeStyle=entityRelationEdgeStyle;html=1;endArrow=ERmany;startArrow=ERone;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="t5" target="t1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e6l" value="session_id (1 : m)" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="e6" vertex="1" connectable="0">
+                    <mxGeometry x="-0.2" y="1" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="3" value="" style="endArrow=classic;html=1;exitX=0.984;exitY=0.711;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="t1r1" target="t2r2">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="510" y="410" as="sourcePoint"/>
+                        <mxPoint x="560" y="360" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="4" value="&lt;b&gt;1:M&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="310" y="130" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="" style="endArrow=classic;html=1;entryX=0.001;entryY=0.374;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" target="t3r2">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="316" y="420" as="sourcePoint"/>
+                        <mxPoint x="383" y="330" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="7" value="" style="endArrow=classic;html=1;exitX=0.984;exitY=0.711;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.001;entryY=0.374;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" target="5">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="260" y="336" as="sourcePoint"/>
+                        <mxPoint x="400" y="558" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="5" value="&lt;b&gt;1:M&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="320" y="420" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="&lt;b&gt;1:M&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="660" y="150" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="" style="endArrow=classic;html=1;exitX=0.983;exitY=0.359;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.968;entryY=1.071;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="t2r4" target="8">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="630" y="196" as="sourcePoint"/>
+                        <mxPoint x="753" y="190" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
